@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace FollowBlock.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutPageViewModel : BaseViewModel
     {
-        public AboutViewModel()
+        public AboutPageViewModel()
         {
             Title = "About";
 

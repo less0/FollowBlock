@@ -2,17 +2,20 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FollowBlock.Views;
+using Prism.Unity;
+using Prism.Ioc;
 
 namespace FollowBlock
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
 
         public App()
         {
             InitializeComponent();
-            MainPage = new AboutPage();
         }
+
+
 
         protected override void OnStart()
         {
@@ -27,6 +30,16 @@ namespace FollowBlock
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<AboutPage>();
+        }
+
+        protected override void OnInitialized()
+        {
+            NavigationService.NavigateAsync("AboutPage");
         }
     }
 }
